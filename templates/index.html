@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Bug Hunter - QA Escape Room</title>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        BUG<span>HUNTER</span>
+    </div>
+
+    <div class="status">
+        ● QA SYSTEM ONLINE
+    </div>
+
+</header>
+
+
+<main>
+
+<section id="startScreen" class="card">
+
+    <p class="mission">
+        MISSION // QA-001
+    </p>
+
+    <h1>
+        QA<br>
+        <span>ESCAPE ROOM</span>
+    </h1>
+
+    <p>
+        Find hidden software defects,
+        classify them correctly and
+        become the QA Master.
+    </p>
+
+    <div class="features">
+
+        <div>🔍 Find Bugs</div>
+        <div>🚨 Set Severity</div>
+        <div>🐛 Classify</div>
+        <div>🏆 Earn XP</div>
+
+    </div>
+
+    <button onclick="startGame()">
+        START MISSION →
+    </button>
+
+</section>
+
+
+<section id="gameScreen" class="hidden">
+
+    <div class="scorebar">
+
+        <div>
+            LEVEL <b id="level">1</b>/8
+        </div>
+
+        <div>
+            XP <b id="score">0</b>
+        </div>
+
+        <div>
+            TIME <b id="time">60</b>
+        </div>
+
+    </div>
+
+
+    <section class="card">
+
+        <p class="mission">
+            TARGET APPLICATION
+        </p>
+
+        <h2 id="title"></h2>
+
+        <div class="application">
+
+            <div class="dots">
+                ● ● ●
+            </div>
+
+            <h3 id="application"></h3>
+
+            <p id="story"></p>
+
+            <div class="fake-input"></div>
+
+            <div class="fake-input small"></div>
+
+            <div class="fake-button">
+                SUBMIT
+            </div>
+
+        </div>
+
+
+        <h3>
+            What did you discover?
+        </h3>
+
+
+        <label>Bug</label>
+
+        <select id="bug">
+
+            <option value="">
+                Select Bug
+            </option>
+
+            <option>
+                Authentication bypass
+            </option>
+
+            <option>
+                Negative withdrawal accepted
+            </option>
+
+            <option>
+                Invalid quantity accepted
+            </option>
+
+            <option>
+                Duplicate payment
+            </option>
+
+            <option>
+                Invalid email accepted
+            </option>
+
+            <option>
+                Incorrect average calculation
+            </option>
+
+            <option>
+                Submit button state defect
+            </option>
+
+            <option>
+                Zero-value transaction accepted
+            </option>
+
+        </select>
+
+
+        <label>Severity</label>
+
+        <select id="severity">
+
+            <option value="">
+                Select Severity
+            </option>
+
+            <option>Critical</option>
+            <option>High</option>
+            <option>Medium</option>
+            <option>Low</option>
+
+        </select>
+
+
+        <label>Bug Type</label>
+
+        <select id="type">
+
+            <option value="">
+                Select Type
+            </option>
+
+            <option>Functional</option>
+            <option>Validation</option>
+            <option>Security</option>
+            <option>UI</option>
+
+        </select>
+
+
+        <button onclick="submitBug()">
+            SUBMIT BUG REPORT
+        </button>
+
+
+        <div id="result"></div>
+
+    </section>
+
+</section>
+
+
+<section id="finishScreen"
+         class="card hidden finish">
+
+    <p class="mission">
+        MISSION COMPLETE
+    </p>
+
+    <h1>
+        QA <span>MASTER</span> 🏆
+    </h1>
+
+    <h2 id="finalScore"></h2>
+
+    <p>
+        You successfully completed
+        the Bug Hunter challenge.
+    </p>
+
+    <button onclick="location.reload()">
+        PLAY AGAIN
+    </button>
+
+</section>
+
+</main>
+
+
+<script src="{{ url_for('static',
+                        filename='game.js') }}">
+</script>
+
+</body>
+
+</html>
